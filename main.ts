@@ -20,8 +20,6 @@
 enum GamerBitPin {
     //% block="X button"
     P1 = DAL.MICROBIT_ID_IO_P1,
-    //% block="Y button"
-    P2 = DAL.MICROBIT_ID_IO_P2,
     //% block="D-PAD up"
     P8 = DAL.MICROBIT_ID_IO_P8,
     //% block="D-PAD down"
