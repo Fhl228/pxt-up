@@ -11,6 +11,9 @@
  * @author [email](1035868977@qq.com)
  * @version  V1.0
  * @date  2018-03-20
+gamePad.onEvent(GamerBitPin.P1, GamerBitEvent.Down, function () {
+    
+})
  */
 
 /**
@@ -20,6 +23,8 @@
 enum GamerBitPin {
     //% block="X button"
     P1 = DAL.MICROBIT_ID_IO_P1,
+    //% block="Y button"
+    P2 = DAL.MICROBIT_ID_IO_P2,
     //% block="D-PAD up"
     P8 = DAL.MICROBIT_ID_IO_P8,
     //% block="D-PAD down"
@@ -61,21 +66,17 @@ namespace gamePad {
         I3 = 225
     }
 
-    export enum Led {
-        //% blockId="OFF" block="off"
-        OFF = 0,
-        //% blockId="ON" block="on"
-        ON = 1
-    }
+    
 
 
     //% shim=gamerpad::init
     function init(): void {
         return;
     }
-    
+
     function PinInit(): void {
         pins.setPull(DigitalPin.P1, PinPullMode.PullNone);
+        pins.setPull(DigitalPin.P2, PinPullMode.PullNone);
         pins.setPull(DigitalPin.P8, PinPullMode.PullNone);
         pins.setPull(DigitalPin.P13, PinPullMode.PullNone);
         pins.setPull(DigitalPin.P14, PinPullMode.PullNone);
@@ -121,16 +122,6 @@ namespace gamePad {
 
   
 
-    /**
-     * LED indicator light switch.
-     */
-    //% weight=20
-    //% blockId=gamePad_led block="LED|%index|"
-    //% index.fieldEditor="gridpicker" index.fieldOptions.columns=2
-    export function led(index: Led): void {
-        if (!PIN_INIT) { 
-            PinInit();
-        }
-        pins.digitalWritePin(DigitalPin.P16, <number>index);
-    }
+    
+   
 }
