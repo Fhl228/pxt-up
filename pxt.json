@@ -19,7 +19,7 @@
     ],
     "public": false,
     "supportedTargets": [
-        "microbit_v2"
+        "microbit(v2)"
     ],
     "preferredEditor": "tsprj"
 }
