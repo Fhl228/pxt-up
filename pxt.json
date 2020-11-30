@@ -5,8 +5,8 @@
     "license": "GNU",
     "dependencies": {
         "core": "*",
-        "radio": "*",
-        "microphone": "*"
+        "radio": "*"
+
     },
     "files": [
         "README.md",
@@ -22,5 +22,5 @@
     "supportedTargets": [
         "microbit"
     ],
-    "preferredEditor": "tsprj"
+    "preferredEditor": "blocksprj"
 }
