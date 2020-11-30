@@ -11,9 +11,6 @@
  * @author [email](1035868977@qq.com)
  * @version  V1.0
  * @date  2018-03-20
-gamePad.onEvent(GamerBitPin.P1, GamerBitEvent.Down, function () {
-    
-})
  */
 
 /**
@@ -66,7 +63,12 @@ namespace gamePad {
         I3 = 225
     }
 
-    
+    export enum Led {
+        //% blockId="OFF" block="off"
+        OFF = 0,
+        //% blockId="ON" block="on"
+        ON = 1
+    }
 
 
     //% shim=gamerpad::init
@@ -122,6 +124,16 @@ namespace gamePad {
 
   
 
-    
-   
+    /**
+     * LED indicator light switch.
+     */
+    //% weight=20
+    //% blockId=gamePad_led block="LED|%index|"
+    //% index.fieldEditor="gridpicker" index.fieldOptions.columns=2
+    export function led(index: Led): void {
+        if (!PIN_INIT) { 
+            PinInit();
+        }
+        pins.digitalWritePin(DigitalPin.P16, <number>index);
+    }
 }
