@@ -22,6 +22,8 @@ enum GamerBitPin {
     P1 = DAL.MICROBIT_ID_IO_P1,
     //% block="Y button"
     P2 = DAL.MICROBIT_ID_IO_P2,
+    //% block="D-PAD up"
+    P8 = DAL.MICROBIT_ID_IO_P8,
     //% block="D-PAD down"
     P13 = DAL.MICROBIT_ID_IO_P13,
     //% block="D-PAD left"
@@ -73,10 +75,10 @@ namespace gamePad {
     function init(): void {
         return;
     }
-
+    
     function PinInit(): void {
         pins.setPull(DigitalPin.P1, PinPullMode.PullNone);
-        pins.setPull(DigitalPin.P2, PinPullMode.PullNone);
+        pins.setPull(DigitalPin.P8, PinPullMode.PullNone);
         pins.setPull(DigitalPin.P13, PinPullMode.PullNone);
         pins.setPull(DigitalPin.P14, PinPullMode.PullNone);
         pins.setPull(DigitalPin.P15, PinPullMode.PullNone);
