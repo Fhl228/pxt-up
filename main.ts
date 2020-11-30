@@ -51,6 +51,13 @@ enum GamerBitEvent {
 //% weight=10 color=#DF6721 icon="\uf11b" block="gamePad"
 namespace gamePad {
     let PIN_INIT = 0;
+    
+    export enum Vibrator { 
+        //% blockId="V0" block="stop"
+        V0 = 0,
+        //% blockId="V1" block="Vibration"
+        V1 = 255,     
+    }
 
     export enum Intensity { 
         //% blockId="I0" block="stop"
@@ -122,7 +129,32 @@ namespace gamePad {
         control.onEvent(<number>button, <number>event, handler); // register handler
     }
 
-  
+    /**
+     * Vibrating motor switch.
+     */
+    //% weight=50
+    //% blockId=gamePad_vibratorMotor block="Vibrator motor switch|%index|"
+    //% index.fieldEditor="gridpicker" index.fieldOptions.columns=2
+    export function vibratorMotor(index: Vibrator): void {
+        vibratorMotorSpeed(<number>index);
+        return;
+    }
+
+    /**
+     * Vibration motor speed setting, adjustable range 0~255.
+     */
+    //% weight=30
+    //% blockGap=50
+    //% blockId=gamePad_vibratorMotorSpeed block="Vibrator motor intensity|%degree"
+    //% degree.min=0 degree.max=255
+    export function vibratorMotorSpeed(degree: number): void {
+        if (!PIN_INIT) { 
+            PinInit();
+        }
+        let num = degree * 4;
+        pins.analogWritePin(AnalogPin.P12, <number>num);
+        return;
+    }
 
     /**
      * LED indicator light switch.
